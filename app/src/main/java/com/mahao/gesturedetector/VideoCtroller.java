@@ -3,9 +3,12 @@ package com.mahao.gesturedetector;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
+import android.media.AudioManager;
 import android.view.Display;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.VideoView;
 
 import io.vov.vitamio.widget.MediaController;
@@ -20,6 +23,9 @@ public class VideoCtroller extends MediaController {
     private GestureDetector mGestureDetector;
     private Activity mActivity;
     private VideoView mVideoView;
+    private int mVolume;
+    private int mMaxVolume;
+    private AudioManager mAudioManager;
 
     public VideoCtroller(Context context, VideoView videoView,Activity activity) {
 
@@ -27,6 +33,8 @@ public class VideoCtroller extends MediaController {
         this.mContext = context;
         this.mActivity = activity;
         this.mVideoView = videoView;
+        mMaxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mGestureDetector = new GestureDetector(mContext, new MyGestureListener());
     }
 
@@ -83,6 +91,15 @@ public class VideoCtroller extends MediaController {
         }
     }
 
+
+    @Override
+    protected View makeControllerView() {
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.audio_player,null);
+
+        return super.makeControllerView();
+    }
+
     // 显示进度条，或者隐藏精度条
     private void startAndStopPlayer() {
 
@@ -94,7 +111,19 @@ public class VideoCtroller extends MediaController {
     }
 
     // 调试音量大小
+    private void onVolumeSlide(Float percent){
 
+        if(mVolume == -1){
+
+            mVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+            if(mVolume < 0){
+                mVolume = 0;
+
+
+            }
+        }
+
+    }
 
 }
 
