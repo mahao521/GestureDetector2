@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_thrid"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mahao.gesturedetector.ThridActivity">
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/layout_log_cat"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="click"
+            android:id="@+id/btn_get_log"
+            android:text="获取日志"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:layout_marginLeft="10dp"
+            android:onClick="click"
+            android:id="@+id/btn_remove_log"
+            android:text="清空日志"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:text="跳转"
+            android:onClick="click"
+            android:id="@+id/btn_jump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:background="#bfbcbc"
+        android:layout_marginTop="10dp"
+        android:id="@+id/layout_log_cat"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+            <TextView
+                android:padding="5dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.2"
+                android:id="@+id/txt_log_hint"
+                android:hint="点击屏幕，获取点击日志"
+                android:textColor="#060606"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </ScrollView>
+
+</RelativeLayout>
