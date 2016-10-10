@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 
 public abstract class MainActivity extends AppCompatActivity {
 
@@ -13,12 +14,13 @@ public abstract class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.activity_main);
         mGestureDetector =  new GestureDetector(this,new MyGestor());
 
     }
-
 
     // 下一个页面
     public abstract void next(View view);

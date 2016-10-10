@@ -316,9 +316,8 @@ public class MediaPlayer {
     }
     try {
     
-  
-    load_lib(  LIB_ROOT ,  "libstlport_shared.so");
-    load_lib(  LIB_ROOT ,  "libvplayer.so");
+      load_lib(  LIB_ROOT ,  "libvplayer.so");
+      load_lib(  LIB_ROOT ,  "libstlport_shared.so");
     loadFFmpeg_native_lib( LIB_ROOT , "libffmpeg.so");    
       boolean vvo_loaded = false;
       if (Build.VERSION.SDK_INT > 8)

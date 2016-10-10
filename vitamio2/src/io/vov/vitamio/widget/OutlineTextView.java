@@ -28,7 +28,7 @@ import android.widget.TextView;
 
 /**
  * Display text with border, use the same XML attrs as
- * {@link android.widget.TextView}, except that {@link OutlineTextView} will
+ * {@link TextView}, except that {@link OutlineTextView} will
  * transform the shadow to border
  */
 public class OutlineTextView extends TextView {

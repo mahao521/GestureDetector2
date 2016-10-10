@@ -21,8 +21,17 @@
         <activity android:name=".FirstActivity">
         </activity>
 
-        <activity android:name=".SecondActivity">
+        <!--去掉标题栏的第二种方法
+            android:theme="@android:style/Theme.NoTitleBar"-->
+
+        <!--sensorLandscape 2个方向，重力有关-->
+        <activity android:name=".SecondActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
         </activity>
+
     </application>
 
 </manifest>
